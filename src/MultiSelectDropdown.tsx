@@ -1,8 +1,9 @@
 import { Dispatch, useCallback, useState } from "react";
+import LabelledCheckbox from "./LabelledCheckbox";
 
 export type Option = {
   value: string;
-  label?: string;
+  label: string;
 };
 
 type Props = {
@@ -20,7 +21,7 @@ export function SimpleDropdown({
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleChange = useCallback(
+  const handleOptionClick = useCallback(
     (option: Option) => {
       setSelectedOptions((prevSelectedOptions) => {
         if (
@@ -43,18 +44,15 @@ export function SimpleDropdown({
       {isOpen && (
         <div>
           {options.map((option) => (
-            <span key={`${name}-dd-${option.label}`}>
-              <input
-                type="checkbox"
-                name={name}
-                value={option.value}
-                checked={selectedOptions.some(
-                  (selectedOption) => selectedOption.value === option.value
-                )}
-                onChange={() => handleChange(option)}
-              />
-              <label htmlFor={option.value}>{option.label}</label>
-            </span>
+            <LabelledCheckbox
+              key={`${name}-dd-${option.label}`}
+              option={option}
+              name={name}
+              checked={selectedOptions.some(
+                (selectedOption) => selectedOption.value === option.value
+              )}
+              onClick={handleOptionClick}
+            />
           ))}
         </div>
       )}

@@ -7,7 +7,7 @@ function App() {
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
 
   useEffect(() => {
-    console.log({ selectedOptions });
+    // console.log({ selectedOptions });
   });
 
   return (
