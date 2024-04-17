@@ -1,0 +1,55 @@
+{
+  "easyData": [
+    { "value": "England", "label": "England" },
+    { "value": "Scotland", "label": "Scotland" },
+    { "value": "Wales", "label": "Wales" },
+    { "value": "Ireland", "label": "Ireland" },
+    { "value": "France", "label": "France" },
+    { "value": "Germany", "label": "Germany" },
+    { "value": "Spain", "label": "Spain" },
+    { "value": "Italy", "label": "Italy" },
+    { "value": "Portugal", "label": "Portugal" },
+    { "value": "Belgium", "label": "Belgium" },
+    { "value": "Netherlands", "label": "Netherlands" },
+    { "value": "Luxembourg", "label": "Luxembourg" },
+    { "value": "Switzerland", "label": "Switzerland" },
+    { "value": "Austria", "label": "Austria" },
+    { "value": "Denmark", "label": "Denmark" },
+    { "value": "Sweden", "label": "Sweden" },
+    { "value": "Norway", "label": "Norway" }
+  ],
+  "mediumData": [
+    {
+      "group": "Europe",
+      "values": [
+        { "value": "France" },
+        { "value": "Germany" },
+        { "value": "Spain" }
+      ]
+    }
+  ],
+  "HardData": [
+    {
+      "group": "UK",
+      "values": [
+        {
+          "group": "England",
+          "values": [
+            { "value": "North" },
+            { "value": "South" },
+            { "value": "East" }
+          ]
+        },
+        {
+          "group": "Scotland",
+          "values": [{ "value": "North" }, { "value": "South" }]
+        },
+        {
+          "group": "Wales",
+          "isSelectable": false,
+          "values": [{ "value": "North Wales" }, { "value": "South Wales" }]
+        }
+      ]
+    }
+  ]
+}
