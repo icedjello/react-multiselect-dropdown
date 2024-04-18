@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { Option } from "./SimpleDropdown";
+import { Option } from "../types";
+
 type Props = {
   name: string;
   option: Option;

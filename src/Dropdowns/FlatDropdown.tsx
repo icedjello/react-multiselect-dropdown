@@ -1,10 +1,6 @@
 import { Dispatch, useCallback, useState } from "react";
-import LabelledCheckbox from "./LabelledCheckbox";
-
-export type Option = {
-  value: string;
-  label: string;
-};
+import LabelledCheckbox from "../Checkboxes/LabelledCheckbox";
+import type { Option } from "../types";
 
 type Props = {
   name: string;
@@ -13,7 +9,7 @@ type Props = {
   options: Option[];
 };
 
-export function SimpleDropdown({
+function FlatDropdown({
   name,
   options,
   selectedOptions,
@@ -61,3 +57,5 @@ export function SimpleDropdown({
     </>
   );
 }
+
+export default FlatDropdown;

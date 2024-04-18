@@ -1,6 +1,7 @@
 import { Dispatch, useCallback, useState } from "react";
-import LabelledCheckbox from "./LabelledCheckbox";
-import { Option } from "./SimpleDropdown";
+import LabelledCheckbox from "../Checkboxes/LabelledCheckbox";
+import { Option } from "../types";
+
 type GroupedOptions = {
   groupName: string;
   values: Option[];
@@ -13,7 +14,7 @@ type Props = {
   options: GroupedOptions[];
 };
 
-export function GroupedDropdown({
+function GroupedDropdown({
   name,
   options,
   selectedOptions,
@@ -68,3 +69,5 @@ export function GroupedDropdown({
     </>
   );
 }
+
+export default GroupedDropdown;
