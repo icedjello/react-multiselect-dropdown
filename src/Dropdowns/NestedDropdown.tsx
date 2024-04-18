@@ -39,6 +39,20 @@ function NestedDropdown({
     [setSelectedOptions]
   );
 
+  const getCheckedState = (values: Option[]) => {
+    const amountOfMatches = selectedOptions.filter(
+      ({ value: selectedValue }) => {
+        return values.find(({ value }) => value === selectedValue);
+      }
+    ).length;
+
+    return amountOfMatches === 0
+      ? "none"
+      : amountOfMatches === values.length
+      ? "all"
+      : "some";
+  };
+
   return (
     <>
       <div onClick={() => setIsOpen(!isOpen)}>
@@ -47,7 +61,11 @@ function NestedDropdown({
       {isOpen && (
         <div>
           {options.map(({ label, values }) => (
-            <ParentCheckbox label={label} key={`${name}-${label}-c`}>
+            <ParentCheckbox
+              label={label}
+              key={`${name}-${label}-c`}
+              checked={getCheckedState(values)}
+            >
               {values.map((option) => (
                 <LabelledCheckbox
                   key={`${name}-${label}-dd-${option.label}`}
