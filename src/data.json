@@ -40,6 +40,34 @@
       ]
     }
   ],
+
+  "nestedData": [
+    {
+      "label": "A to D",
+      "values": [
+        { "value": "a", "label": "A" },
+        { "value": "b", "label": "B" },
+        { "value": "c", "label": "C" },
+        { "value": "d", "label": "D" }
+      ]
+    },
+    {
+      "label": "E to G",
+      "values": [
+        { "value": "e", "label": "E" },
+        { "value": "f", "label": "F" },
+        { "value": "g", "label": "G" }
+      ]
+    },
+    {
+      "label": "H & I",
+      "values": [
+        { "value": "h", "label": "H" },
+        { "value": "i", "label": "I" }
+      ]
+    }
+  ],
+
   "HardData": [
     {
       "group": "UK",
