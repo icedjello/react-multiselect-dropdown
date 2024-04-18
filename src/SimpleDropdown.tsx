@@ -8,9 +8,9 @@ export type Option = {
 
 type Props = {
   name: string;
-  options: Option[];
   setSelectedOptions: Dispatch<React.SetStateAction<Option[]>>;
   selectedOptions: Option[];
+  options: Option[];
 };
 
 export function SimpleDropdown({
@@ -40,7 +40,9 @@ export function SimpleDropdown({
 
   return (
     <>
-      <div onClick={() => setIsOpen(!isOpen)}>click to open</div>
+      <div onClick={() => setIsOpen(!isOpen)}>
+        <p>click</p>
+      </div>
       {isOpen && (
         <div>
           {options.map((option) => (

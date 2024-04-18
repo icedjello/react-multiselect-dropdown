@@ -1,30 +1,42 @@
 {
-  "easyData": [
-    { "value": "England", "label": "England" },
-    { "value": "Scotland", "label": "Scotland" },
-    { "value": "Wales", "label": "Wales" },
-    { "value": "Ireland", "label": "Ireland" },
-    { "value": "France", "label": "France" },
-    { "value": "Germany", "label": "Germany" },
-    { "value": "Spain", "label": "Spain" },
-    { "value": "Italy", "label": "Italy" },
-    { "value": "Portugal", "label": "Portugal" },
-    { "value": "Belgium", "label": "Belgium" },
-    { "value": "Netherlands", "label": "Netherlands" },
-    { "value": "Luxembourg", "label": "Luxembourg" },
-    { "value": "Switzerland", "label": "Switzerland" },
-    { "value": "Austria", "label": "Austria" },
-    { "value": "Denmark", "label": "Denmark" },
-    { "value": "Sweden", "label": "Sweden" },
-    { "value": "Norway", "label": "Norway" }
+  "flatData": [
+    { "value": "england", "label": "England" },
+    { "value": "scotland", "label": "Scotland" },
+    { "value": "wales", "label": "Wales" },
+    { "value": "ireland", "label": "Ireland" },
+    { "value": "france", "label": "France" },
+    { "value": "germany", "label": "Germany" },
+    { "value": "spain", "label": "Spain" },
+    { "value": "italy", "label": "Italy" },
+    { "value": "portugal", "label": "Portugal" },
+    { "value": "belgium", "label": "Belgium" },
+    { "value": "netherlands", "label": "Netherlands" },
+    { "value": "luxembourg", "label": "Luxembourg" },
+    { "value": "switzerland", "label": "Switzerland" },
+    { "value": "austria", "label": "Austria" },
+    { "value": "denmark", "label": "Denmark" },
+    { "value": "sweden", "label": "Sweden" },
+    { "value": "norway", "label": "Norway" }
   ],
-  "mediumData": [
+  "groupedData": [
     {
-      "group": "Europe",
+      "groupName": "Europe",
       "values": [
-        { "value": "France" },
-        { "value": "Germany" },
-        { "value": "Spain" }
+        { "value": "switzerland", "label": "Switzerland" },
+        { "value": "austria", "label": "Austria" },
+        { "value": "denmark", "label": "Denmark" },
+        { "value": "sweden", "label": "Sweden" },
+        { "value": "norway", "label": "Norway" }
+      ]
+    },
+    {
+      "groupName": "Africa",
+      "values": [
+        { "value": "morocco", "label": "Morocco" },
+        { "value": "southAfrica", "label": "South Africa" },
+        { "value": "uganda", "label": "Uganda" },
+        { "value": "somalia", "label": "Somalia" },
+        { "value": "angola", "label": "Angola" }
       ]
     }
   ],

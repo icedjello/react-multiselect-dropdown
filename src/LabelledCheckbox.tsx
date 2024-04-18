@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Option } from "./MultiSelectDropdown";
+import { Option } from "./SimpleDropdown";
 type Props = {
   name: string;
   option: Option;
