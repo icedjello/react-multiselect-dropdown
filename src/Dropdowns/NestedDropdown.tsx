@@ -1,7 +1,6 @@
-import LabelledCheckbox from "../Checkboxes/LabelledCheckbox";
-import ParentCheckbox from "../Checkboxes/ParentCheckbox";
-import type { Option, ParentCheckedState } from "../types";
-import { Dispatch, useCallback, useState } from "react";
+import NestedCheckboxes from "../Checkboxes/NestedCheckboxes";
+import type { Option } from "../types";
+import { Dispatch, useState } from "react";
 
 type NestedOptions = {
   label: string;
@@ -22,40 +21,6 @@ function NestedDropdown({
   setSelectedOptions,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const handleOptionClick = useCallback(
-    (option: Option) => {
-      setSelectedOptions((prevSelectedOptions) => {
-        if (
-          prevSelectedOptions.some(
-            (selectedOption) => selectedOption.value === option.value
-          )
-        ) {
-          return prevSelectedOptions.filter((o) => o.value !== option.value);
-        } else {
-          return [...prevSelectedOptions, option];
-        }
-      });
-    },
-    [setSelectedOptions]
-  );
-
-  const getCheckedState = (values: Option[]) => {
-    const amountOfMatches = selectedOptions.filter(
-      ({ value: selectedValue }) => {
-        return values.find(({ value }) => value === selectedValue);
-      }
-    ).length;
-
-    return amountOfMatches === 0
-      ? "none"
-      : amountOfMatches === values.length
-      ? "all"
-      : "some";
-  };
-
-  const onParentClicked = (checked: ParentCheckedState) => {
-    console.log(checked);
-  };
 
   return (
     <>
@@ -65,24 +30,14 @@ function NestedDropdown({
       {isOpen && (
         <div>
           {options.map(({ label, values }) => (
-            <ParentCheckbox
+            <NestedCheckboxes
               label={label}
+              name={name}
               key={`${name}-${label}-c`}
-              checked={getCheckedState(values)}
-              onParentClicked={onParentClicked}
-            >
-              {values.map((option) => (
-                <LabelledCheckbox
-                  key={`${name}-${label}-dd-${option.label}`}
-                  option={option}
-                  name={name}
-                  checked={selectedOptions.some(
-                    (selectedOption) => selectedOption.value === option.value
-                  )}
-                  onClick={handleOptionClick}
-                />
-              ))}
-            </ParentCheckbox>
+              values={values}
+              selectedOptions={selectedOptions}
+              setSelectedOptions={setSelectedOptions}
+            />
           ))}
         </div>
       )}
