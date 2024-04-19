@@ -3,4 +3,6 @@ type Option = {
   label: string;
 };
 
-export type { Option };
+type ParentCheckedState = "all" | "none" | "some";
+
+export type { Option, ParentCheckedState };

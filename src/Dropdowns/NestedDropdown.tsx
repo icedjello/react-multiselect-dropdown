@@ -1,6 +1,6 @@
 import LabelledCheckbox from "../Checkboxes/LabelledCheckbox";
 import ParentCheckbox from "../Checkboxes/ParentCheckbox";
-import type { Option } from "../types";
+import type { Option, ParentCheckedState } from "../types";
 import { Dispatch, useCallback, useState } from "react";
 
 type NestedOptions = {
@@ -53,6 +53,10 @@ function NestedDropdown({
       : "some";
   };
 
+  const onParentClicked = (checked: ParentCheckedState) => {
+    console.log(checked);
+  };
+
   return (
     <>
       <div onClick={() => setIsOpen(!isOpen)}>
@@ -65,6 +69,7 @@ function NestedDropdown({
               label={label}
               key={`${name}-${label}-c`}
               checked={getCheckedState(values)}
+              onParentClicked={onParentClicked}
             >
               {values.map((option) => (
                 <LabelledCheckbox
@@ -86,25 +91,3 @@ function NestedDropdown({
 }
 
 export default NestedDropdown;
-
-//   {
-//     options.map(({ groupName, values }) => {
-//       return (
-//         <div key={`${name}-${groupName}-g`}>
-//           <b>{groupName}</b>
-//           {values.map((option) => (
-//             <LabelledCheckbox
-//               key={`${name}-${groupName}-dd-${option.label}`}
-//               option={option}
-//               name={name}
-//               checked={selectedOptions.some(
-//                 (selectedOption) =>
-//                   selectedOption.value === option.value
-//               )}
-//               onClick={handleOptionClick}
-//             />
-//           ))}
-//         </div>
-//       );
-//     });
-//   }

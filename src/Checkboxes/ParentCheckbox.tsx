@@ -1,18 +1,19 @@
+import { ParentCheckedState } from "../types";
 import "./ParentCheckbox.module.css";
 
 import { PropsWithChildren } from "react";
 type Props = {
   label: string;
-  checked: "all" | "none" | "some";
+  checked: ParentCheckedState;
+  onParentClicked: (checked: ParentCheckedState) => void;
 };
 
 function ParentCheckbox({
   label,
   children,
   checked,
+  onParentClicked,
 }: PropsWithChildren<Props>) {
-  const handleClick = () => {};
-
   return (
     <div>
       <div>
@@ -21,7 +22,7 @@ function ParentCheckbox({
           <input
             type="checkbox"
             checked={checked === "all"}
-            onClick={handleClick}
+            onChange={() => onParentClicked(checked)}
             className={checked === "some" ? "some" : undefined}
           />
           <span className="checkmark"></span>
