@@ -8,9 +8,9 @@ type GroupedOption = {
   values: Option[];
 };
 
-type NestedOption = GroupedOption & {
-  nested: true;
-};
+// type NestedOption = GroupedOption & {
+
+// };
 
 type ParentCheckedState = "all" | "none" | "some";
 
