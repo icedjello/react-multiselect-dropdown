@@ -1,17 +1,12 @@
 import { Dispatch, useCallback, useState } from "react";
 import LabelledCheckbox from "../Checkboxes/LabelledCheckbox";
-import { Option } from "../types";
-
-type GroupedOptions = {
-  groupName: string;
-  values: Option[];
-};
+import { GroupedOption, Option } from "../types";
 
 type Props = {
   name: string;
   setSelectedOptions: Dispatch<React.SetStateAction<Option[]>>;
   selectedOptions: Option[];
-  options: GroupedOptions[];
+  options: GroupedOption[];
 };
 
 function GroupedDropdown({
@@ -50,13 +45,14 @@ function GroupedDropdown({
             return (
               <div key={`${name}-${groupName}-g`}>
                 <b>{groupName}</b>
-                {values.map((option) => (
+                {values.map(({ value, label }) => (
                   <LabelledCheckbox
-                    key={`${name}-${groupName}-dd-${option.label}`}
-                    option={option}
+                    key={`${name}-dd-${label}`}
+                    value={value}
+                    label={label}
                     name={name}
                     checked={selectedOptions.some(
-                      (selectedOption) => selectedOption.value === option.value
+                      ({ value: selectedValue }) => selectedValue === value
                     )}
                     onClick={handleOptionClick}
                   />

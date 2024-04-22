@@ -1,24 +1,24 @@
-import { memo } from "react";
 import { Option } from "../types";
 
 type Props = {
   name: string;
-  option: Option;
+  value: string;
+  label: string;
   checked: boolean;
   onClick: (option: Option) => void;
 };
 
-const LabelledCheckbox = memo(({ option, name, checked, onClick }: Props) => (
+const LabelledCheckbox = ({ value, label, name, checked, onClick }: Props) => (
   <span>
     <input
       type="checkbox"
       name={name}
-      value={option.value}
+      value={value}
       checked={checked}
-      onChange={() => onClick(option)}
+      onChange={() => onClick({ value, label })}
     />
-    <label htmlFor={option.value}>{option.label}</label>
+    <label htmlFor={value}>{label}</label>
   </span>
-));
+);
 
 export default LabelledCheckbox;

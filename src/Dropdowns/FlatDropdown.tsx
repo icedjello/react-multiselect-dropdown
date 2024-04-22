@@ -41,13 +41,14 @@ function FlatDropdown({
       </div>
       {isOpen && (
         <div>
-          {options.map((option) => (
+          {options.map(({ value, label }) => (
             <LabelledCheckbox
-              key={`${name}-dd-${option.label}`}
-              option={option}
+              key={`${name}-dd-${label}`}
+              value={value}
+              label={label}
               name={name}
               checked={selectedOptions.some(
-                (selectedOption) => selectedOption.value === option.value
+                ({ value: selectedValue }) => selectedValue === value
               )}
               onClick={handleOptionClick}
             />
